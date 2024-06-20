@@ -1,0 +1,38 @@
+/* index.css */
+:root {
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #121212;
+  --color-text-light: #000000;
+  --color-text-dark: #ffffff;
+  --color-appbar-light: rgba(255, 255, 255, 0.9);
+  --color-appbar-dark: #1f1f1f;
+}
+
+body {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+body.light-mode {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+body.dark-mode {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+.App.light-mode .MuiAppBar-root {
+  background-color: var(--color-appbar-light);
+  color: #5F5F5F;
+}
+
+.App.dark-mode .MuiAppBar-root {
+  background-color: var(--color-appbar-dark);
+}
+
+/* Padding top for the rest of the page to avoid overlap with the fixed header */
+main {
+  padding-top: 64px; /* Adjust this value based on the height of your header */
+}
