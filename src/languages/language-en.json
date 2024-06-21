@@ -3,5 +3,8 @@
   "about": "About",
   "projects": "Projects",
   "skills": "Skills",
-  "contact": "Contact"
+  "contact": "Contact",
+  "download_cv": "Download CV",
+  "home_description_one": "Hello, I am Juan Gomez. I am passionate about software development and technology. I love constantly learning new technologies with the aim of innovating and perfecting the projects I work on.",
+  "home_description_two": "I am a full stack developer with experience exploring both Frontend and Backend. I love creating, improving, and fixing things, and I enjoy the process of learning new technologies, even when it involves breaking and rebuilding to better understand their functioning."
 }

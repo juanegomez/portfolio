@@ -23,19 +23,32 @@ const HeaderComponent = ({
   language,
   toggleLanguage,
 }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorNavEl, setAnchorNavEl] = useState(null);
+  const [anchorLangEl, setAnchorLangEl] = useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleNavMenuOpen = (event) => {
+    setAnchorNavEl(event.currentTarget);
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
+  const handleNavMenuClose = () => {
+    setAnchorNavEl(null);
   };
 
-  // Definición de los elementos de navegación según el idioma
+  const handleLangMenuOpen = (event) => {
+    setAnchorLangEl(event.currentTarget);
+  };
+
+  const handleLangMenuClose = () => {
+    setAnchorLangEl(null);
+  };
+
+  const handleLanguageSelect = (lang) => {
+    toggleLanguage(lang);
+    handleLangMenuClose();
+  };
+
   const navItems = [
     { id: "home", label: language === "en" ? contentEn.home : contentEs.home },
     {
@@ -58,16 +71,8 @@ const HeaderComponent = ({
 
   const languageOptions = [
     { id: "en", label: "🇺🇸 EN" },
-    {
-      id: "es",
-      label: "🇪🇸 ES",
-    },
+    { id: "es", label: "🇪🇸 ES" },
   ];
-
-  const handleLanguageSelect = (lang) => {
-    toggleLanguage(lang);
-    handleMenuClose();
-  };
 
   return (
     <AppBar
@@ -88,7 +93,7 @@ const HeaderComponent = ({
           sx={{ width: 40, height: 40, marginRight: 2 }}
         />
         {isMobile ? (
-          <IconButton color="inherit" edge="start" onClick={handleMenuOpen}>
+          <IconButton color="inherit" edge="start" onClick={handleNavMenuOpen}>
             <MenuIcon />
           </IconButton>
         ) : null}
@@ -116,7 +121,7 @@ const HeaderComponent = ({
             color="inherit"
             aria-controls="language-menu"
             aria-haspopup="true"
-            onClick={handleMenuOpen}
+            onClick={handleLangMenuOpen}
             sx={{ ml: 1 }}
           >
             {languageOptions.find((opt) => opt.id === language)?.flag}{" "}
@@ -124,10 +129,23 @@ const HeaderComponent = ({
           </Button>
         </Box>
         <Menu
+          id="nav-menu"
+          anchorEl={anchorNavEl}
+          open={Boolean(anchorNavEl)}
+          onClose={handleNavMenuClose}
+          sx={{ mt: 4 }}
+        >
+          {navItems.map((item) => (
+            <MenuItem key={item.id} onClick={handleNavMenuClose}>
+              {item.label}
+            </MenuItem>
+          ))}
+        </Menu>
+        <Menu
           id="language-menu"
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
+          anchorEl={anchorLangEl}
+          open={Boolean(anchorLangEl)}
+          onClose={handleLangMenuClose}
           sx={{ mt: 4 }}
         >
           {languageOptions.map((option) => (
@@ -135,7 +153,7 @@ const HeaderComponent = ({
               key={option.id}
               onClick={() => handleLanguageSelect(option.id)}
             >
-              {option.flag} {option.label}
+              {option.label}
             </MenuItem>
           ))}
         </Menu>

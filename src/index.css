@@ -2,10 +2,23 @@
 :root {
   --color-bg-light: #ffffff;
   --color-bg-dark: #121212;
-  --color-text-light: #000000;
+  --color-text-light: #000000CC;
   --color-text-dark: #ffffff;
   --color-appbar-light: rgba(255, 255, 255, 0.9);
   --color-appbar-dark: #1f1f1f;
+  /* Buttons */
+  --color-github-icon-light: #1f1f1f;
+  --color-github-icon-dark: #ffffff;
+
+  --color-linkendin-icon-light: #1f1f1f;
+  --color-linkendin-icon-dark: #ffffff;
+
+  --color-cv-button-light: #1f1f1f;
+  --color-cv-button-dark: #ffffff;
+  --color-cv-button-border-light: #1f1f1f;
+  --color-cv-button-border-dark: #FFFFFF;
+  --color-cv-button-text-light: #FFFFFF;
+  --color-cv-button-text-dark: #1f1f1f;
 }
 
 body {
@@ -30,6 +43,16 @@ body.dark-mode {
 
 .App.dark-mode .MuiAppBar-root {
   background-color: var(--color-appbar-dark);
+}
+
+.name-text {
+  font-weight: 500;
+}
+
+.typewriter-container {
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
 /* Padding top for the rest of the page to avoid overlap with the fixed header */
