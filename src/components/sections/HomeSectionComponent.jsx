@@ -56,14 +56,12 @@ const CustomAvatar = styled(Avatar)(({ theme }) => ({
     order: -1,
     alignSelf: "center",
     marginBottom: theme.spacing(2),
-    marginLeft: 0, // Remove left margin
   },
 }));
 
 const HomeSectionComponent = ({ darkMode, language }) => {
   return (
     <Container>
-      <CustomAvatar src={JuanegomezImage} alt="Juan Esteban Gómez" />
       <Info>
         <Typography variant="h4" className="name-text">
           Juan Esteban Gómez
@@ -193,6 +191,7 @@ const HomeSectionComponent = ({ darkMode, language }) => {
           </Grid>
         </Buttons>
       </Info>
+      <CustomAvatar src={JuanegomezImage} alt="Juan Esteban Gómez" />
     </Container>
   );
 };
