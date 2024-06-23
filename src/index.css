@@ -45,10 +45,6 @@ body.dark-mode {
   background-color: var(--color-appbar-dark);
 }
 
-.name-text {
-  font-weight: 500;
-}
-
 .typewriter-container {
   font-size: 25px;
   font-family: 'Roboto', sans-serif;

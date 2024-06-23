@@ -54,8 +54,11 @@ const CustomAvatar = styled(Avatar)(({ theme }) => ({
   marginLeft: theme.spacing(10),
   [theme.breakpoints.down("md")]: {
     order: -1,
-    alignSelf: "center",
+    alignSelf: "left",
     marginBottom: theme.spacing(2),
+    marginLeft: theme.spacing(0),
+    width: theme.spacing(35),
+    height: theme.spacing(35),
   },
 }));
 
@@ -63,7 +66,7 @@ const HomeSectionComponent = ({ darkMode, language }) => {
   return (
     <Container>
       <Info>
-        <Typography variant="h4" className="name-text">
+        <Typography variant="h4" sx={{ fontWeight: "bold" }}>
           Juan Esteban Gómez
         </Typography>
 
@@ -83,7 +86,7 @@ const HomeSectionComponent = ({ darkMode, language }) => {
         </div>
 
         <br />
-        <Typography variant="body1" paragraph sx={{ textAlign: "left" }}>
+        <Typography variant="body1" paragraph sx={{ textAlign: "justify" }}>
           👋🏼{" "}
           {language === "en"
             ? contentEn.home_description_one

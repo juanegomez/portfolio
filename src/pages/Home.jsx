@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import HeaderComponent from "./../components/HeaderComponent";
 import HomeSectionComponent from "./../components/sections/HomeSectionComponent";
+import AboutMeSectionComponent from "../components/sections/AboutMeSectionComponent";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -28,7 +29,9 @@ const Home = () => {
           <section id="home">
             <HomeSectionComponent darkMode={darkMode} language={language} />
           </section>
-          <section id="about">About Content</section>
+          <section id="about_me">
+            <AboutMeSectionComponent darkMode={darkMode} language={language} />
+          </section>
           <section id="projects">Projects Content</section>
           <section id="skills">Skills Content</section>
           <section id="contact">Contact Content</section>
