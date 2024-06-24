@@ -56,12 +56,12 @@ const HeaderComponent = ({
       label: language === "en" ? contentEn.about : contentEs.about,
     },
     {
-      id: "projects",
-      label: language === "en" ? contentEn.projects : contentEs.projects,
+      id: "Technologies",
+      label: language === "en" ? contentEn.technologies : contentEs.technologies,
     },
     {
-      id: "skills",
-      label: language === "en" ? contentEn.skills : contentEs.skills,
+      id: "projects",
+      label: language === "en" ? contentEn.projects : contentEs.projects,
     },
     {
       id: "contact",
