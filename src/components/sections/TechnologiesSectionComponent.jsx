@@ -74,6 +74,19 @@ const TechnologiesSectionComponent = ({ darkMode, language }) => {
   const technologyStyles = {
     width: "80px",
     height: "80px",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
+  };
+
+  const mongodbStyles = {
+    width: "40px",
+    height: "80px",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      transform: "scale(1.1)",
+    },
   };
 
   const sectionTitle =
@@ -101,14 +114,11 @@ const TechnologiesSectionComponent = ({ darkMode, language }) => {
             textAlign="center"
             sx={{ marginBottom: "50px" }}
           >
-            <img
+            <Box
+              component="img"
               src={tech.image}
               alt={tech.name}
-              style={
-                tech.name === "MongoDB"
-                  ? { width: "40px", height: "80px" }
-                  : technologyStyles
-              }
+              sx={tech.name === "MongoDB" ? mongodbStyles : technologyStyles}
             />
             <Typography variant="body1">{tech.name}</Typography>
           </Grid>

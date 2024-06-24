@@ -8,8 +8,6 @@ import {
   IconButton,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GetAppIcon from "@mui/icons-material/GetApp";
 import JuanegomezImage from "./../../../public/juanegomez.png";
 import contentEn from "./../../languages/language-en.json";
@@ -143,54 +141,6 @@ const HomeSectionComponent = ({ darkMode, language }) => {
                 ? contentEn.download_cv
                 : contentEs.download_cv}
             </Button>
-          </Grid>
-
-          <Grid item>
-            <IconButton
-              href="https://github.com/juanegomez"
-              target="_blank"
-              sx={{
-                width: 50,
-                height: 50,
-                "&:hover .github-icon": {
-                  fontSize: 55,
-                },
-              }}
-            >
-              <GitHubIcon
-                className="github-icon"
-                sx={{
-                  color: darkMode
-                    ? "var(--color-github-icon-dark)"
-                    : "var(--color-github-icon-light)",
-                  fontSize: 50,
-                }}
-              />
-            </IconButton>
-          </Grid>
-
-          <Grid item>
-            <IconButton
-              href="https://linkedin.com/in/juanegomez"
-              target="_blank"
-              sx={{
-                width: 50,
-                height: 50,
-                "&:hover .linkedin-icon": {
-                  fontSize: 55,
-                },
-              }}
-            >
-              <LinkedInIcon
-                className="linkedin-icon"
-                sx={{
-                  color: darkMode
-                    ? "var(--color-linkendin-icon-dark)"
-                    : "var(--color-linkendin-icon-light)",
-                  fontSize: 50,
-                }}
-              />
-            </IconButton>
           </Grid>
         </Buttons>
       </Info>
