@@ -8,5 +8,9 @@
   "home_description_one": "Hello, I am Juan Gomez. I am passionate about software development and technology. I love constantly learning new technologies with the aim of innovating and perfecting the projects I work on.",
   "home_description_two": "I am a full stack developer with experience exploring both Frontend and Backend. I love creating, improving, and fixing things, and I enjoy the process of learning new technologies, even when it involves breaking and rebuilding to better understand their functioning.",
   "about_me_text_one": "As a software developer, I find satisfaction in tackling new challenges, breaking them down into manageable tasks to achieve efficient solutions. I am open to opportunities that allow me to acquire new skills and contribute to the team and its outcomes.",
-  "about_me_text_two": "I have experience in backend development using various programming languages, including PHP with frameworks such as Laravel, Lumen, and Bonfire, as well as JavaScript with Node.js for backend development. I also have experience in frontend development using Angular and React with JavaScript. Additionally, I am familiar with AWS services, which allows me to implement scalable and robust solutions in the cloud."
+  "about_me_text_two": "I have experience in backend development using various programming languages, including PHP with frameworks such as Laravel, Lumen, and Bonfire, as well as JavaScript with Node.js for backend development. I also have experience in frontend development using Angular and React with JavaScript. Additionally, I am familiar with AWS services, which allows me to implement scalable and robust solutions in the cloud.",
+  "Contact_me": "Contact me!",
+  "online": "Online",
+  "offline": "Offline",
+  "icbf_project": "UDS Operational Management Platform"
 }

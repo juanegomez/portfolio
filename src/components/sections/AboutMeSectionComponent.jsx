@@ -71,7 +71,7 @@ const AboutMeSectionComponent = ({ darkMode, language }) => {
               : contentEs.about_me_text_two}
           </Typography>
           <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-            ¡Contáctame!
+            {language === "en" ? contentEn.Contact_me : contentEs.Contact_me}
           </Typography>
           <Box
             display="flex"
