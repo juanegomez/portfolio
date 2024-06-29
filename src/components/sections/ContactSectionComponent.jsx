@@ -154,14 +154,14 @@ const ContactSectionComponent = ({ darkMode, language }) => {
 
     emailjs
       .send(
-        "service_2qhmtju",
-        "template_s9zdd3g",
+        process.env.EMAIL_JS_SERVICE,
+        process.env.EMAIL_JS_TEMPLATE,
         {
           user_email: formData.email,
           message: formData.message,
           subject: formData.subject,
         },
-        "WLK4n4qGZjpNEJWcD"
+        process.env.EMAIL_JS_PUBLIC_KEY
       )
       .then(
         (result) => {
