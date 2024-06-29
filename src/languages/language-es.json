@@ -18,7 +18,7 @@
   "message": "Mensaje",
   "send": "Enviar",
   "subject_field_required": "El campo de asunto es obligatorio.",
-  "email_field_required": "El campo de correo electrónico es obligatorio o inválido.",
+  "email_field_required": "El campo de correo electrónico es vacío o inválido.",
   "message_field_required": "El campo de mensaje es obligatorio.",
   "incorrect_field": "Campo incorrecto",
   "message_sent": "¡Mensaje enviado!",

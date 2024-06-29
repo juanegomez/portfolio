@@ -58,6 +58,10 @@ const CustomAvatar = styled(Avatar)(({ theme }) => ({
     width: theme.spacing(35),
     height: theme.spacing(35),
   },
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "scale(1.1)",
+  },
 }));
 
 const HomeSectionComponent = ({ darkMode, language }) => {

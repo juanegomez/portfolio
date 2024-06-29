@@ -18,7 +18,7 @@
   "message": "Message",
   "send": "Send",
   "subject_field_required": "The subject field is required.",
-  "email_field_required": "The email field is required or invalid.",
+  "email_field_required": "The email field is empty or invalid.",
   "message_field_required": "The message field is required.",
   "incorrect_field": "Incorrect field",
   "message_sent": "Message sent!",

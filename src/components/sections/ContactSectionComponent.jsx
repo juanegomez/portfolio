@@ -41,6 +41,16 @@ const ContactSectionComponent = ({ darkMode, language }) => {
                 color: darkMode
                   ? "var(--color-text-input-light)"
                   : "var(--color-text-input-dark)",
+                "&:-webkit-autofill": {
+                  "-webkit-box-shadow": `0 0 0 100px ${
+                    darkMode
+                      ? "var(--color-bg-dark)"
+                      : "var(--color-text-input-light)"
+                  } inset`,
+                  "-webkit-text-fill-color": darkMode
+                    ? "var(--color-text-input-light)"
+                    : "var(--color-text-input-dark)",
+                },
               },
               "&.Mui-focused input": {
                 color: darkMode
@@ -51,6 +61,16 @@ const ContactSectionComponent = ({ darkMode, language }) => {
                 color: darkMode
                   ? "var(--color-text-input-light)"
                   : "var(--color-text-input-dark)",
+                "&:-webkit-autofill": {
+                  "-webkit-box-shadow": `0 0 0 100px ${
+                    darkMode
+                      ? "var(--color-bg-dark)"
+                      : "var(--color-text-input-light)"
+                  } inset`,
+                  "-webkit-text-fill-color": darkMode
+                    ? "var(--color-text-input-light)"
+                    : "var(--color-text-input-dark)",
+                },
               },
               "&.Mui-focused textarea": {
                 color: darkMode
@@ -99,7 +119,7 @@ const ContactSectionComponent = ({ darkMode, language }) => {
   };
 
   const validateData = () => {
-    const emailRegex = /^(?!\s*$)(?!.*@.*\..*$).*/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let isValidData = {
       isValid: true,
       message: "",
@@ -115,7 +135,7 @@ const ContactSectionComponent = ({ darkMode, language }) => {
       };
     }
 
-    if (emailRegex.test(formData.email) || formData.email === "") {
+    if (!emailRegex.test(formData.email)) {
       return {
         isValid: false,
         message:
@@ -219,6 +239,10 @@ const ContactSectionComponent = ({ darkMode, language }) => {
                   maxHeight: "300px",
                   objectFit: "cover",
                   mb: 2,
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.1)",
+                  },
                 }}
               />
             </Box>

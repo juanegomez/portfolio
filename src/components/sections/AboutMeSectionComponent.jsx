@@ -43,6 +43,12 @@ const AboutMeSectionComponent = ({ darkMode, language }) => {
           width={isSmallScreen ? "100%" : "30%"}
           maxHeight={isSmallScreen ? "auto" : "70vh"}
           margin={isSmallScreen ? "0 0 1rem 0" : "0 1rem 0 0"}
+          sx={{
+            transition: "transform 0.3s ease-in-out",
+            "&:hover": {
+              transform: "scale(1.1)",
+            },
+          }}
         />
         <Box
           display="flex"
