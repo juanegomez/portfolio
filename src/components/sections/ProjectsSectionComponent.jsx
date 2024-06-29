@@ -115,7 +115,7 @@ const ProjectsSectionComponent = ({ language }) => {
       >
         {language === "en" ? contentEn.projects : contentEs.projects}
       </Typography>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} sx={{ marginBottom: "50px" }}>
         {projects.map((project) => (
           <Grid
             item
@@ -128,6 +128,9 @@ const ProjectsSectionComponent = ({ language }) => {
             <Card
               sx={{
                 width: 400,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
                 borderRadius: "10px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
                 textAlign: "center",
@@ -160,7 +163,7 @@ const ProjectsSectionComponent = ({ language }) => {
                   />
                 </Box>
               </Box>
-              <CardContent>
+              <CardContent sx={{ flex: 1 }}>
                 <Typography variant="h5" component="div" gutterBottom>
                   {project.title}
                 </Typography>
@@ -204,31 +207,31 @@ const ProjectsSectionComponent = ({ language }) => {
                     ? project.descriptionEn
                     : project.descriptionEs}
                 </Typography>
-                {project.isActive && (
-                  <Box display="flex" justifyContent="center" mt={2}>
-                    <Button
-                      variant="contained"
-                      sx={{
-                        backgroundColor: "black",
-                        transition: "transform 0.3s ease-in-out",
-                        "&:hover": {
-                          transform: "scale(1.1)",
-                          backgroundColor: "black",
-                        },
-                        borderRadius: "50%",
-                        width: "50px",
-                        height: "50px",
-                        minWidth: "50px",
-                      }}
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <LanguageIcon />
-                    </Button>
-                  </Box>
-                )}
               </CardContent>
+              {project.isActive && (
+                <Box display="flex" justifyContent="center" mb={2}>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      backgroundColor: "black",
+                      transition: "transform 0.3s ease-in-out",
+                      "&:hover": {
+                        transform: "scale(1.1)",
+                        backgroundColor: "black",
+                      },
+                      borderRadius: "50%",
+                      width: "50px",
+                      height: "50px",
+                      minWidth: "50px",
+                    }}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <LanguageIcon />
+                  </Button>
+                </Box>
+              )}
             </Card>
           </Grid>
         ))}

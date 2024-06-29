@@ -19,6 +19,13 @@
   --color-cv-button-border-dark: #FFFFFF;
   --color-cv-button-text-light: #FFFFFF;
   --color-cv-button-text-dark: #1f1f1f;
+
+  /* inputs */
+  --color-border-input-dark: #1f1f1f;
+  --color-border-input-light: #ffffff;
+  --color-background-input-light: #ffffff;
+  --color-text-input-light: #ffffff;
+  --color-text-input-dark: #1f1f1f;
 }
 
 body {
@@ -54,4 +61,8 @@ body.dark-mode {
 /* Padding top for the rest of the page to avoid overlap with the fixed header */
 main {
   padding-top: 64px; /* Adjust this value based on the height of your header */
+}
+
+.swal2-confirm {
+  background-color: #1f1f1f !important;
 }

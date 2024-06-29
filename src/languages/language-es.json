@@ -12,5 +12,17 @@
   "Contact_me": "¡Contáctame!",
   "online": "En línea",
   "offline": "Fuera de línea",
-  "icbf_project": "Plataforma de Gestión Operacional de UDS"
+  "icbf_project": "Plataforma de Gestión Operacional de UDS",
+  "contact_me_section": "Contáctame",
+  "subject": "Asunto",
+  "message": "Mensaje",
+  "send": "Enviar",
+  "subject_field_required": "El campo de asunto es obligatorio.",
+  "email_field_required": "El campo de correo electrónico es obligatorio o inválido.",
+  "message_field_required": "El campo de mensaje es obligatorio.",
+  "incorrect_field": "Campo incorrecto",
+  "message_sent": "¡Mensaje enviado!",
+  "message_sent_successfully": "Tu mensaje ha sido enviado exitosamente. Te responderé lo antes posible.",
+  "error_sending_title": "Error al enviar",
+  "error_sending_message": "No se pudo enviar tu mensaje. Por favor, intenta nuevamente."
 }

@@ -12,5 +12,17 @@
   "Contact_me": "Contact me!",
   "online": "Online",
   "offline": "Offline",
-  "icbf_project": "UDS Operational Management Platform"
+  "icbf_project": "UDS Operational Management Platform",
+  "contact_me_section": "Contact me",
+  "subject": "Subject",
+  "message": "Message",
+  "send": "Send",
+  "subject_field_required": "The subject field is required.",
+  "email_field_required": "The email field is required or invalid.",
+  "message_field_required": "The message field is required.",
+  "incorrect_field": "Incorrect field",
+  "message_sent": "Message sent!",
+  "message_sent_successfully": "Your message has been sent successfully. I will respond as soon as possible.",
+  "error_sending_title": "Error sending",
+  "error_sending_message": "Your message could not be sent. Please try again."
 }
