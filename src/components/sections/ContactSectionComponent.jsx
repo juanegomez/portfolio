@@ -10,7 +10,6 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import contentEn from "./../../languages/language-en.json";
 import contentEs from "./../../languages/language-es.json";
-import contactImage from "./../../../public/contact_image.png";
 import SendIcon from "@mui/icons-material/Send";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
@@ -232,7 +231,7 @@ const ContactSectionComponent = ({ darkMode, language }) => {
               </Typography>
               <Box
                 component="img"
-                src={contactImage}
+                src="https://juanegomez-bucket.s3.us-west-2.amazonaws.com/portfolio/images/contact_image.png"
                 alt="Contact"
                 sx={{
                   width: "100%",

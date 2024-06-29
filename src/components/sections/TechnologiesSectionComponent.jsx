@@ -4,70 +4,63 @@ import contentEn from "./../../languages/language-en.json";
 import contentEs from "./../../languages/language-es.json";
 
 const TechnologiesSectionComponent = ({ darkMode, language }) => {
+  const urlImage =
+    "https://juanegomez-bucket.s3.us-west-2.amazonaws.com/portfolio/images/";
+
   const technologies = [
     {
       name: "JavaScript",
-      image: `./../../../public/${darkMode ? "js_light.png" : "js_dark.png"}`,
+      image: `${urlImage}${darkMode ? "js_light.png" : "js_dark.png"}`,
     },
     {
       name: "Angular",
-      image: `./../../../public/${
+      image: `${urlImage}${
         darkMode ? "angularjs_light.png" : "angularjs_dark.png"
       }`,
     },
     {
       name: "Python",
-      image: `./../../../public/${
-        darkMode ? "python_light.png" : "python_dark.png"
-      }`,
+      image: `${urlImage}${darkMode ? "python_light.png" : "python_dark.png"}`,
     },
     {
       name: "MongoDB",
-      image: `./../../../public/${
+      image: `${urlImage}${
         darkMode ? "mongodb_light.png" : "mongodb_dark.png"
       }`,
     },
     {
       name: "Laravel",
-      image: `./../../../public/${
+      image: `${urlImage}${
         darkMode ? "laravel_light.png" : "laravel_dark.png"
       }`,
     },
     {
       name: "Git",
-      image: `./../../../public/${darkMode ? "git_light.png" : "git_dark.png"}`,
+      image: `${urlImage}${darkMode ? "git_light.png" : "git_dark.png"}`,
     },
     {
       name: "Node.js",
-      image: `./../../../public/${
-        darkMode ? "node_light.png" : "node_dark.png"
-      }`,
+      image: `${urlImage}${darkMode ? "node_light.png" : "node_dark.png"}`,
     },
     {
       name: "React",
-      image: `./../../../public/${
-        darkMode ? "react_light.png" : "react_dark.png"
-      }`,
+      image: `${urlImage}${darkMode ? "react_light.png" : "react_dark.png"}`,
     },
     {
       name: "MySQL",
-      image: `./../../../public/${
-        darkMode ? "mysql_white.png" : "mysql_dark.png"
-      }`,
+      image: `${urlImage}${darkMode ? "mysql_white.png" : "mysql_dark.png"}`,
     },
     {
       name: "Docker",
-      image: `./../../../public/${
-        darkMode ? "docker_light.png" : "docker_dark.png"
-      }`,
+      image: `${urlImage}${darkMode ? "docker_light.png" : "docker_dark.png"}`,
     },
     {
       name: "PHP",
-      image: `./../../../public/${darkMode ? "php_light.png" : "php_dark.png"}`,
+      image: `${urlImage}${darkMode ? "php_light.png" : "php_dark.png"}`,
     },
     {
       name: "AWS",
-      image: `./../../../public/${darkMode ? "aws_light.png" : "aws_dark.png"}`,
+      image: `${urlImage}${darkMode ? "aws_light.png" : "aws_dark.png"}`,
     },
   ];
 

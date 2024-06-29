@@ -14,11 +14,14 @@ import contentEs from "./../../languages/language-es.json";
 import LanguageIcon from "@mui/icons-material/Language";
 
 const ProjectsSectionComponent = ({ language }) => {
+  const urlImage =
+    "https://juanegomez-bucket.s3.us-west-2.amazonaws.com/portfolio/images/";
+
   const projects = [
     {
       id: 1,
       title: "USA Supply Source",
-      image: "./../../../public/cornercloud.png",
+      image: `${urlImage}cornercloud.png`,
       isActive: true,
       link: "https://thecornercloud.com/index.php/login",
       descriptionEn: (
@@ -43,7 +46,7 @@ const ProjectsSectionComponent = ({ language }) => {
     {
       id: 2,
       title: "USA Buying Group",
-      image: "./../../../public/usabuyinggroup.png",
+      image: `${urlImage}usabuyinggroup.png`,
       isActive: true,
       link: "https://usabuying.group",
       descriptionEn: (
@@ -72,7 +75,7 @@ const ProjectsSectionComponent = ({ language }) => {
       title: `${
         language === "en" ? contentEn.icbf_project : contentEs.icbf_project
       }`,
-      image: "./../../../public/icbf_app.png",
+      image: `${urlImage}icbf_app.png`,
       isActive: true,
       link: "https://earnest-ganache-ca2872.netlify.app/",
       descriptionEn: (

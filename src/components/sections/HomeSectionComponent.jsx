@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import GetAppIcon from "@mui/icons-material/GetApp";
-import JuanegomezImage from "./../../../public/juanegomez.png";
 import contentEn from "./../../languages/language-en.json";
 import contentEs from "./../../languages/language-es.json";
 import Typewriter from "typewriter-effect";
@@ -148,7 +147,10 @@ const HomeSectionComponent = ({ darkMode, language }) => {
           </Grid>
         </Buttons>
       </Info>
-      <CustomAvatar src={JuanegomezImage} alt="Juan Esteban Gómez" />
+      <CustomAvatar
+        src="https://juanegomez-bucket.s3.us-west-2.amazonaws.com/portfolio/juanegomez.png"
+        alt="Juan Esteban Gómez"
+      />
     </Container>
   );
 };

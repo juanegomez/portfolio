@@ -7,7 +7,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import aboutImage from "./../../../public/about_me.png";
 import EmailIcon from "@mui/icons-material/Email";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -38,7 +37,7 @@ const AboutMeSectionComponent = ({ darkMode, language }) => {
       >
         <Box
           component="img"
-          src={aboutImage}
+          src="https://juanegomez-bucket.s3.us-west-2.amazonaws.com/portfolio/images/about_me.png"
           alt="About me"
           width={isSmallScreen ? "100%" : "30%"}
           maxHeight={isSmallScreen ? "auto" : "70vh"}
