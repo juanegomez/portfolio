@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Grid,
@@ -7,6 +7,10 @@ import {
   useMediaQuery,
   useTheme,
   SvgIcon,
+  Menu,
+  MenuItem,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -15,6 +19,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import contentEn from "./../../languages/language-en.json";
 import contentEs from "./../../languages/language-es.json";
 import { mdiGitlab } from "@mdi/js";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 const GitLabIcon = (props) => (
   <SvgIcon {...props}>
@@ -25,8 +30,30 @@ const GitLabIcon = (props) => (
 const AboutMeSectionComponent = ({ darkMode, language }) => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [copied, setCopied] = useState(false);
 
   const email = "juanegomez1022@gmail.com";
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleCopy = () => {
+    setCopied(true);
+    handleClose();
+  };
+
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setCopied(false);
+  };
 
   return (
     <Box
@@ -195,8 +222,7 @@ const AboutMeSectionComponent = ({ darkMode, language }) => {
 
               <Grid item>
                 <IconButton
-                  href={`mailto:${email}`}
-                  target="_blank"
+                  onClick={handleClick}
                   sx={{
                     width: 50,
                     height: 50,
@@ -215,11 +241,48 @@ const AboutMeSectionComponent = ({ darkMode, language }) => {
                     }}
                   />
                 </IconButton>
+                <Menu
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <MenuItem
+                    onClick={() => {
+                      window.location.href = `mailto:${email}`;
+                      handleClose();
+                    }}
+                  >
+                    {language === "en"
+                      ? contentEn.send_email
+                      : contentEs.send_email}
+                  </MenuItem>
+                  <CopyToClipboard text={email}>
+                    <MenuItem onClick={handleCopy}>
+                      {language === "en"
+                        ? contentEn.copy_email
+                        : contentEs.copy_email}
+                    </MenuItem>
+                  </CopyToClipboard>
+                </Menu>
               </Grid>
             </Grid>
           </Box>
         </Box>
       </Box>
+      <Snackbar
+        open={copied}
+        autoHideDuration={3000}
+        onClose={handleSnackbarClose}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+      >
+        <Alert
+          onClose={handleSnackbarClose}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          {language === "en" ? contentEn.email_copied : contentEs.email_copied}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
