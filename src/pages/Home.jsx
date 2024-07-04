@@ -5,6 +5,7 @@ import AboutMeSectionComponent from "../components/sections/AboutMeSectionCompon
 import TechnologiesSectionComponent from "../components/sections/TechnologiesSectionComponent";
 import ProjectsSectionComponent from "../components/sections/ProjectsSectionComponent";
 import ContactSectionComponent from "../components/sections/ContactSectionComponent";
+import FooterComponent from "../components/FooterComponent";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -48,6 +49,7 @@ const Home = () => {
             <ContactSectionComponent darkMode={darkMode} language={language} />
           </section>
         </main>
+        <FooterComponent darkMode={darkMode} language={language} />
       </div>
     </>
   );

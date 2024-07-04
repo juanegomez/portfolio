@@ -24,5 +24,6 @@
   "message_sent": "¡Mensaje enviado!",
   "message_sent_successfully": "Tu mensaje ha sido enviado exitosamente. Te responderé lo antes posible.",
   "error_sending_title": "Error al enviar",
-  "error_sending_message": "No se pudo enviar tu mensaje. Por favor, intenta nuevamente."
+  "error_sending_message": "No se pudo enviar tu mensaje. Por favor, intenta nuevamente.",
+  "all_rights_reserved": "Todos los derechos reservados."
 }

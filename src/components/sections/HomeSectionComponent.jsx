@@ -64,6 +64,11 @@ const CustomAvatar = styled(Avatar)(({ theme }) => ({
 }));
 
 const HomeSectionComponent = ({ darkMode, language }) => {
+  const bucketUrl = "https://juanegomez-bucket.s3.us-west-2.amazonaws.com";
+  const myCv = `${bucketUrl}/${
+    language === "en" ? "juan_gomez_cv_en.pdf" : "juan_gomez_cv.pdf"
+  }`;
+
   return (
     <Container>
       <Info>
@@ -104,7 +109,7 @@ const HomeSectionComponent = ({ darkMode, language }) => {
           <Grid item>
             <Button
               variant="contained"
-              href="https://juanegomez-bucket.s3.us-west-2.amazonaws.com/Juan_Gomez_cv.pdf"
+              href={myCv}
               target="_blank"
               sx={{
                 display: "flex",
@@ -148,7 +153,7 @@ const HomeSectionComponent = ({ darkMode, language }) => {
         </Buttons>
       </Info>
       <CustomAvatar
-        src="https://juanegomez-bucket.s3.us-west-2.amazonaws.com/portfolio/juanegomez.png"
+        src={`${bucketUrl}/portfolio/juanegomez.png`}
         alt="Juan Esteban Gómez"
       />
     </Container>

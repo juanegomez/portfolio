@@ -6,6 +6,7 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  SvgIcon,
 } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
@@ -13,6 +14,13 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import contentEn from "./../../languages/language-en.json";
 import contentEs from "./../../languages/language-es.json";
+import { mdiGitlab } from "@mdi/js";
+
+const GitLabIcon = (props) => (
+  <SvgIcon {...props}>
+    <path d={mdiGitlab} />
+  </SvgIcon>
+);
 
 const AboutMeSectionComponent = ({ darkMode, language }) => {
   const theme = useTheme();
@@ -102,6 +110,30 @@ const AboutMeSectionComponent = ({ darkMode, language }) => {
                   }}
                 >
                   <GitHubIcon
+                    className="github-icon"
+                    sx={{
+                      color: darkMode
+                        ? "var(--color-github-icon-dark)"
+                        : "var(--color-github-icon-light)",
+                      fontSize: 50,
+                    }}
+                  />
+                </IconButton>
+              </Grid>
+
+              <Grid item>
+                <IconButton
+                  href="https://gitlab.com/juanegomez"
+                  target="_blank"
+                  sx={{
+                    width: 50,
+                    height: 50,
+                    "&:hover .github-icon": {
+                      fontSize: 55,
+                    },
+                  }}
+                >
+                  <GitLabIcon
                     className="github-icon"
                     sx={{
                       color: darkMode

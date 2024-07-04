@@ -325,10 +325,10 @@ const ContactSectionComponent = ({ darkMode, language }) => {
                 }}
                 onClick={handleSubmit}
               >
-                <Box sx={{ mr: 1 }}>
-                  <SendIcon />
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                  <SendIcon sx={{ mr: 1 }} />
+                  {language === "en" ? contentEn.send : contentEs.send}
                 </Box>
-                {language === "en" ? contentEn.send : contentEs.send}
               </Button>
             </Box>
           </Grid>
