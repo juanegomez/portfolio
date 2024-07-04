@@ -16,6 +16,7 @@ import contentEn from "./../languages/language-en.json";
 import contentEs from "./../languages/language-es.json";
 import ThemeSwitch from "./ThemeSwitchComponent";
 import blackLogo from "./../../public/juanegomez-logo-black.png";
+import { Link } from "react-scroll";
 
 const HeaderComponent = ({
   darkMode,
@@ -52,12 +53,13 @@ const HeaderComponent = ({
   const navItems = [
     { id: "home", label: language === "en" ? contentEn.home : contentEs.home },
     {
-      id: "about",
+      id: "about_me",
       label: language === "en" ? contentEn.about : contentEs.about,
     },
     {
-      id: "Technologies",
-      label: language === "en" ? contentEn.technologies : contentEs.technologies,
+      id: "technologies",
+      label:
+        language === "en" ? contentEn.technologies : contentEs.technologies,
     },
     {
       id: "projects",
@@ -105,14 +107,22 @@ const HeaderComponent = ({
           }}
         >
           {navItems.map((item) => (
-            <Button key={item.id} color="inherit">
-              <Typography
-                variant="body1"
-                sx={{ fontFamily: "inherit", textTransform: "none" }}
-              >
-                {item.label}
-              </Typography>
-            </Button>
+            <Link
+              key={item.id}
+              to={item.id}
+              smooth={true}
+              duration={500}
+              offset={-70}
+            >
+              <Button color="inherit" onClick={handleNavMenuClose}>
+                <Typography
+                  variant="body1"
+                  sx={{ fontFamily: "inherit", textTransform: "none" }}
+                >
+                  {item.label}
+                </Typography>
+              </Button>
+            </Link>
           ))}
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -136,9 +146,15 @@ const HeaderComponent = ({
           sx={{ mt: 4 }}
         >
           {navItems.map((item) => (
-            <MenuItem key={item.id} onClick={handleNavMenuClose}>
-              {item.label}
-            </MenuItem>
+            <Link
+              key={item.id}
+              to={item.id}
+              smooth={true}
+              duration={500}
+              offset={-70}
+            >
+              <MenuItem onClick={handleNavMenuClose}>{item.label}</MenuItem>
+            </Link>
           ))}
         </Menu>
         <Menu
