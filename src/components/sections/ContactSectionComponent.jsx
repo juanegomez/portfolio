@@ -11,8 +11,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import contentEn from "./../../languages/language-en.json";
 import contentEs from "./../../languages/language-es.json";
 import SendIcon from "@mui/icons-material/Send";
-import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
+import { sendContactEmail } from "./../../api/portfolioApi";
 
 const ContactSectionComponent = ({ darkMode, language }) => {
   const customTheme = createTheme({
@@ -157,7 +157,7 @@ const ContactSectionComponent = ({ darkMode, language }) => {
     return isValidData;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const dataIsValid = validateData();
 
     if (!dataIsValid.isValid) {
@@ -171,40 +171,30 @@ const ContactSectionComponent = ({ darkMode, language }) => {
       return false;
     }
 
-    emailjs
-      .send(
-        process.env.EMAIL_JS_SERVICE,
-        process.env.EMAIL_JS_TEMPLATE,
-        {
-          user_email: formData.email,
-          message: formData.message,
-          subject: formData.subject,
-        },
-        process.env.EMAIL_JS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          showAlert(
-            language === "en" ? contentEn.message_sent : contentEs.message_sent,
-            language === "en"
-              ? contentEn.message_sent_successfully
-              : contentEs.message_sent_successfully
-          );
+    const response = await sendContactEmail(formData);
 
-          setFormData(defaultFormData);
-        },
-        (error) => {
-          showAlert(
-            language === "en"
-              ? contentEn.error_sending_title
-              : contentEs.error_sending_title,
-            language === "en"
-              ? contentEn.error_sending_message
-              : contentEs.error_sending_message,
-            "error"
-          );
-        }
+    if (response.status === 200) {
+      showAlert(
+        language === "en" ? contentEn.message_sent : contentEs.message_sent,
+        language === "en"
+          ? contentEn.message_sent_successfully
+          : contentEs.message_sent_successfully
       );
+
+      setFormData(defaultFormData);
+    } else {
+      showAlert(
+        language === "en"
+          ? contentEn.error_sending_title
+          : contentEs.error_sending_title,
+        language === "en"
+          ? contentEn.error_sending_message
+          : contentEs.error_sending_message,
+        "error"
+      );
+    }
+
+    return true;
   };
 
   return (
