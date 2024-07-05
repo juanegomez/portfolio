@@ -6,6 +6,7 @@ import {
   Container,
   Typography,
   Grid,
+  CircularProgress,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import contentEn from "./../../languages/language-en.json";
@@ -100,6 +101,7 @@ const ContactSectionComponent = ({ darkMode, language }) => {
   };
 
   const [formData, setFormData] = useState(defaultFormData);
+  const [emailIsSending, setEmailIsSending] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -158,6 +160,8 @@ const ContactSectionComponent = ({ darkMode, language }) => {
   };
 
   const handleSubmit = async () => {
+    setEmailIsSending(true);
+
     const dataIsValid = validateData();
 
     if (!dataIsValid.isValid) {
@@ -168,6 +172,8 @@ const ContactSectionComponent = ({ darkMode, language }) => {
         dataIsValid.message,
         "error"
       );
+
+      setEmailIsSending(false);
       return false;
     }
 
@@ -194,6 +200,7 @@ const ContactSectionComponent = ({ darkMode, language }) => {
       );
     }
 
+    setEmailIsSending(false);
     return true;
   };
 
@@ -312,11 +319,32 @@ const ContactSectionComponent = ({ darkMode, language }) => {
                       : "var(--color-cv-button-light)",
                     transform: "scale(1.05)",
                   },
+                  "&.Mui-disabled": {
+                    backgroundColor: darkMode
+                      ? "var(--color-cv-button-dark)"
+                      : "var(--color-cv-button-light)",
+                    color: darkMode
+                      ? "var(--color-cv-button-text-dark)"
+                      : "var(--color-cv-button-text-light)",
+                  },
                 }}
                 onClick={handleSubmit}
+                disabled={emailIsSending}
               >
                 <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <SendIcon sx={{ mr: 1 }} />
+                  {emailIsSending ? (
+                    <CircularProgress
+                      size={24}
+                      sx={{
+                        color: darkMode
+                          ? "var(--color-cv-button-text-dark)"
+                          : "var(--color-cv-button-text-light)",
+                        mr: 1,
+                      }}
+                    />
+                  ) : (
+                    <SendIcon sx={{ mr: 1 }} />
+                  )}
                   {language === "en" ? contentEn.send : contentEs.send}
                 </Box>
               </Button>
