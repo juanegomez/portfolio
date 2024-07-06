@@ -1,4 +1,4 @@
-# Juan Gomez Portfolio 👨‍💻
+# 👨‍💻 Juan Gomez Portfolio
 
 Welcome to my portfolio. Here you will find a collection of my most outstanding projects and works. This repository contains the source code of my personal portfolio, built with Vite, React and Material UI.
 
