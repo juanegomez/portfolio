@@ -1,34 +1,20 @@
-import React, { useState } from "react";
-import HeaderComponent from "./../components/HeaderComponent";
+import React from "react";
 import HomeSectionComponent from "./../components/sections/HomeSectionComponent";
 import AboutMeSectionComponent from "../components/sections/AboutMeSectionComponent";
 import TechnologiesSectionComponent from "../components/sections/TechnologiesSectionComponent";
 import ProjectsSectionComponent from "../components/sections/ProjectsSectionComponent";
 import ContactSectionComponent from "../components/sections/ContactSectionComponent";
 import FooterComponent from "../components/FooterComponent";
+import { useTheme } from "./../contexts/ThemeContext";
+import { useLanguage } from "./../contexts/LanguageContext";
 
 const Home = () => {
-  const [darkMode, setDarkMode] = useState(true);
-  const [language, setLanguage] = useState("es");
-
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-    document.body.className = darkMode ? "light-mode" : "dark-mode";
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(language === "en" ? "es" : "en");
-  };
+  const { darkMode } = useTheme();
+  const { language } = useLanguage();
 
   return (
     <>
       <div className={`App ${darkMode ? "dark-mode" : "light-mode"}`}>
-        <HeaderComponent
-          darkMode={darkMode}
-          toggleTheme={toggleTheme}
-          language={language}
-          toggleLanguage={toggleLanguage}
-        />
         <main>
           <section id="home">
             <HomeSectionComponent darkMode={darkMode} language={language} />

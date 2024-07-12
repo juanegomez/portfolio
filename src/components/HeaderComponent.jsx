@@ -12,11 +12,12 @@ import {
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-scroll";
 import contentEn from "./../languages/language-en.json";
 import contentEs from "./../languages/language-es.json";
 import ThemeSwitch from "./ThemeSwitchComponent";
 import blackLogo from "./../../public/juanegomez-logo-black.png";
-import { Link } from "react-scroll";
 
 const HeaderComponent = ({
   darkMode,
@@ -28,6 +29,8 @@ const HeaderComponent = ({
   const [anchorLangEl, setAnchorLangEl] = useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleNavMenuOpen = (event) => {
     setAnchorNavEl(event.currentTarget);
@@ -48,6 +51,10 @@ const HeaderComponent = ({
   const handleLanguageSelect = (lang) => {
     toggleLanguage(lang);
     handleLangMenuClose();
+  };
+
+  const handleLogoClick = () => {
+    navigate("/");
   };
 
   const navItems = [
@@ -84,47 +91,54 @@ const HeaderComponent = ({
         backgroundColor: darkMode
           ? "var(--color-appbar-dark)"
           : "var(--color-appbar-light)",
-        color: darkMode ? "#ffffff" : "#00ABE4",
+        color: darkMode ? "#ffffff" : "#1f1f1f",
       }}
     >
       <Toolbar>
-        <Box
-          component="img"
-          src={blackLogo}
-          alt="Logo"
-          sx={{ width: 40, height: 40, marginRight: 2 }}
-        />
-        {isMobile ? (
+        <IconButton
+          onClick={handleLogoClick}
+          sx={{ padding: 0, marginRight: 2 }}
+        >
+          <Box
+            component="img"
+            src={blackLogo}
+            alt="Logo"
+            sx={{ width: 40, height: 40 }}
+          />
+        </IconButton>
+        {location.pathname === "/" && isMobile && (
           <IconButton color="inherit" edge="start" onClick={handleNavMenuOpen}>
             <MenuIcon />
           </IconButton>
-        ) : null}
+        )}
         <Box sx={{ flexGrow: 1 }} />
-        <Box
-          sx={{
-            display: { xs: "none", sm: "flex" },
-            alignItems: "center",
-          }}
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={item.id}
-              smooth={true}
-              duration={500}
-              offset={-70}
-            >
-              <Button color="inherit" onClick={handleNavMenuClose}>
-                <Typography
-                  variant="body1"
-                  sx={{ fontFamily: "inherit", textTransform: "none" }}
-                >
-                  {item.label}
-                </Typography>
-              </Button>
-            </Link>
-          ))}
-        </Box>
+        {location.pathname === "/" && !isMobile && (
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" },
+              alignItems: "center",
+            }}
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.id}
+                smooth={true}
+                duration={500}
+                offset={-70}
+              >
+                <Button color="inherit" onClick={handleNavMenuClose}>
+                  <Typography
+                    variant="body1"
+                    sx={{ fontFamily: "inherit", textTransform: "none" }}
+                  >
+                    {item.label}
+                  </Typography>
+                </Button>
+              </Link>
+            ))}
+          </Box>
+        )}
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <ThemeSwitch checked={darkMode} onChange={toggleTheme} />
           <Button
@@ -134,29 +148,30 @@ const HeaderComponent = ({
             onClick={handleLangMenuOpen}
             sx={{ ml: 1 }}
           >
-            {languageOptions.find((opt) => opt.id === language)?.flag}{" "}
             {languageOptions.find((opt) => opt.id === language)?.label}
           </Button>
         </Box>
-        <Menu
-          id="nav-menu"
-          anchorEl={anchorNavEl}
-          open={Boolean(anchorNavEl)}
-          onClose={handleNavMenuClose}
-          sx={{ mt: 4 }}
-        >
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              to={item.id}
-              smooth={true}
-              duration={500}
-              offset={-70}
-            >
-              <MenuItem onClick={handleNavMenuClose}>{item.label}</MenuItem>
-            </Link>
-          ))}
-        </Menu>
+        {location.pathname === "/" && (
+          <Menu
+            id="nav-menu"
+            anchorEl={anchorNavEl}
+            open={Boolean(anchorNavEl)}
+            onClose={handleNavMenuClose}
+            sx={{ mt: 4 }}
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                to={item.id}
+                smooth={true}
+                duration={500}
+                offset={-70}
+              >
+                <MenuItem onClick={handleNavMenuClose}>{item.label}</MenuItem>
+              </Link>
+            ))}
+          </Menu>
+        )}
         <Menu
           id="language-menu"
           anchorEl={anchorLangEl}

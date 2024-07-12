@@ -28,5 +28,7 @@
   "all_rights_reserved": "Todos los derechos reservados.",
   "send_email": "Enviar email",
   "copy_email": "Copiar email",
-  "email_copied": "¡Correo copiado al portapapeles!"
+  "email_copied": "¡Correo copiado al portapapeles!",
+  "page_not_found": "Página No Encontrada.",
+  "go_home": "Ir a Inicio"
 }
