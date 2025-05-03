@@ -1,11 +1,9 @@
-import React from "react";
 import {
   Box,
   Typography,
   Avatar,
   Button,
   Grid,
-  IconButton,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import GetAppIcon from "@mui/icons-material/GetApp";
@@ -63,6 +61,7 @@ const CustomAvatar = styled(Avatar)(({ theme }) => ({
   },
 }));
 
+// eslint-disable-next-line react/prop-types
 const HomeSectionComponent = ({ darkMode, language }) => {
   const bucketUrl = "https://juanegomez-bucket.s3.us-west-2.amazonaws.com";
   const myCv = `${bucketUrl}/${
