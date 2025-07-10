@@ -50,6 +50,24 @@ const FooterComponent = ({ darkMode, language }) => {
         </IconButton>
         <IconButton
           color="inherit"
+          href="https://www.linkedin.com/in/juanegomez"
+          disableRipple
+          disableFocusRipple
+          target="_blank"
+          sx={{
+            color: darkMode
+              ? "var(--color-linkendin-icon-light)"
+              : "var(--color-linkendin-icon-dark)",
+            "&:hover": {
+              transform: "scale(1.2)",
+              backgroundColor: "transparent",
+            },
+          }}
+        >
+          <LinkedIn />
+        </IconButton>
+        <IconButton
+          color="inherit"
           href="https://github.com/juanegomez"
           disableRipple
           disableFocusRipple
@@ -83,24 +101,6 @@ const FooterComponent = ({ darkMode, language }) => {
           }}
         >
           <GitLabIcon />
-        </IconButton>
-        <IconButton
-          color="inherit"
-          href="https://www.linkedin.com/in/juanegomez"
-          disableRipple
-          disableFocusRipple
-          target="_blank"
-          sx={{
-            color: darkMode
-              ? "var(--color-linkendin-icon-light)"
-              : "var(--color-linkendin-icon-dark)",
-            "&:hover": {
-              transform: "scale(1.2)",
-              backgroundColor: "transparent",
-            },
-          }}
-        >
-          <LinkedIn />
         </IconButton>
       </Box>
     </Box>

@@ -15,7 +15,7 @@ const TechnologiesSectionComponent = ({ darkMode, language }) => {
       transform: "scale(1.1)",
     },
   };
-  
+
   const mongodbStyles = {
     width: "40px",
     height: "80px",
@@ -25,30 +25,12 @@ const TechnologiesSectionComponent = ({ darkMode, language }) => {
     },
   };
 
-const xanoStyles = {
-    width: "120px",
-    height: "100px",
-    color: darkMode ? "#fff" : "#000",
-    transition: "transform 0.3s ease-in-out, color 0.3s ease-in-out",
-    "&:hover": {
-      transform: "scale(1.1)",
-      color: darkMode ? "#000" : "#fff",
-    },
-  };
-
   const technologies = [
     {
       name: "JavaScript",
       image: `${urlImage}${darkMode ? "js_light.png" : "js_dark.png"}`,
       style: technologyStyles,
     },
-    // {
-    //   name: "Angular",
-    //   image: `${urlImage}${
-    //     darkMode ? "angularjs_light.png" : "angularjs_dark.png"
-    //   }`,
-    //   style: technologyStyles,
-    // },
     {
       name: "Python",
       image: `${urlImage}${darkMode ? "python_light.png" : "python_dark.png"}`,
@@ -56,9 +38,8 @@ const xanoStyles = {
     },
     {
       name: "MongoDB",
-      image: `${urlImage}${
-        darkMode ? "mongodb_light.png" : "mongodb_dark.png"
-      }`,
+      image: `${urlImage}${darkMode ? "mongodb_light.png" : "mongodb_dark.png"
+        }`,
       style: mongodbStyles,
     },
     {
@@ -67,10 +48,8 @@ const xanoStyles = {
       style: technologyStyles,
     },
     {
-      name: "Laravel",
-      image: `${urlImage}${
-        darkMode ? "laravel_light.png" : "laravel_dark.png"
-      }`,
+      name: "Xano",
+      image: `/logos/${darkMode ? "xano_light.png" : "xano_dark.png"}`,
       style: technologyStyles,
     },
     {
@@ -79,18 +58,14 @@ const xanoStyles = {
       style: technologyStyles,
     },
     {
-      name: "Xano",
-      image: `/xano.svg`,
-      style: xanoStyles,
+      name: "Laravel",
+      image: `${urlImage}${darkMode ? "laravel_light.png" : "laravel_dark.png"
+        }`,
+      style: technologyStyles,
     },
     {
       name: "Node.js",
       image: `${urlImage}${darkMode ? "node_light.png" : "node_dark.png"}`,
-      style: technologyStyles,
-    },
-    {
-      name: "React",
-      image: `${urlImage}${darkMode ? "react_light.png" : "react_dark.png"}`,
       style: technologyStyles,
     },
     {
@@ -110,42 +85,111 @@ const xanoStyles = {
     },
   ];
 
+  const otherTechnologies = [
+    {
+      name: "React",
+      image: `${urlImage}${darkMode ? "react_light.png" : "react_dark.png"}`,
+      style: technologyStyles,
+    },
+    {
+      name: "Angular",
+      image: `${urlImage}${darkMode ? "angularjs_light.png" : "angularjs_dark.png"
+        }`,
+      style: technologyStyles,
+    },
+  ];
+
   const sectionTitle =
     language === "es" ? contentEs.technologies : contentEn.technologies;
 
-  return (
-    <Box padding={4}>
-      <Typography
-        variant="h4"
-        component="h2"
-        sx={{ fontWeight: "bold", marginBottom: "50px" }}
-        gutterBottom
-      >
-        {sectionTitle}
-      </Typography>
+  const otherTechnologiesTitle =
+    language === "es" ? contentEs.other_technologies : contentEn.other_technologies;
 
-      <Grid container spacing={4}>
-        {technologies.map((tech, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={3}
-            key={index}
-            textAlign="center"
-            sx={{ marginBottom: "50px" }}
-          >
-            <Box
-              component="img"
-              src={tech.image}
-              alt={tech.name}
-              sx={tech.style}
-            />
-            <Typography variant="body1">{tech.name}</Typography>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+  return (
+    <>
+      {/* Pricipal technologies */}
+      <Box padding={4}>
+        <Typography
+          variant="h4"
+          component="h2"
+          sx={{ fontWeight: "bold", marginBottom: "50px" }}
+          gutterBottom
+        >
+          {sectionTitle}
+        </Typography>
+
+        <Grid container spacing={4}>
+          {technologies.map((tech, index) => (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={3}
+              key={index}
+              textAlign="center"
+              sx={{ marginBottom: "50px" }}
+            >
+              <Box
+                component="img"
+                src={tech.image}
+                alt={tech.name}
+                sx={tech.style}
+              />
+              <Typography variant="body1">{tech.name}</Typography>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+
+      {/* Other technologies */}
+      <Box>
+        <Typography
+          variant="h4"
+          component="h2"
+          sx={{ fontWeight: "bold", marginBottom: "50px" }}
+          gutterBottom
+        >
+          {otherTechnologiesTitle}
+        </Typography>
+
+        <Grid container spacing={4} justifyContent="center">
+          {otherTechnologies.map((tech, index) => (
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={3}
+              key={index}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  marginBottom: "50px",
+                }}
+              >
+                <Box
+                  component="img"
+                  src={tech.image}
+                  alt={tech.name}
+                  sx={{
+                    width: "60px",
+                    height: "60px",
+                    objectFit: "contain",
+                    marginBottom: "10px",
+                    ...tech.style,
+                  }}
+                />
+                <Typography variant="body1">{tech.name}</Typography>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </>
   );
 };
 

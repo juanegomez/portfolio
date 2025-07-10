@@ -126,78 +126,6 @@ const AboutMeSectionComponent = ({ darkMode, language }) => {
             >
               <Grid item>
                 <IconButton
-                  href="https://github.com/juanegomez"
-                  target="_blank"
-                  sx={{
-                    width: 50,
-                    height: 50,
-                    "&:hover .github-icon": {
-                      fontSize: 55,
-                    },
-                  }}
-                >
-                  <GitHubIcon
-                    className="github-icon"
-                    sx={{
-                      color: darkMode
-                        ? "var(--color-github-icon-dark)"
-                        : "var(--color-github-icon-light)",
-                      fontSize: 50,
-                    }}
-                  />
-                </IconButton>
-              </Grid>
-
-              <Grid item>
-                <IconButton
-                  href="https://gitlab.com/juanegomez"
-                  target="_blank"
-                  sx={{
-                    width: 50,
-                    height: 50,
-                    "&:hover .github-icon": {
-                      fontSize: 55,
-                    },
-                  }}
-                >
-                  <GitLabIcon
-                    className="github-icon"
-                    sx={{
-                      color: darkMode
-                        ? "var(--color-github-icon-dark)"
-                        : "var(--color-github-icon-light)",
-                      fontSize: 50,
-                    }}
-                  />
-                </IconButton>
-              </Grid>
-
-              <Grid item>
-                <IconButton
-                  href="https://linkedin.com/in/juanegomez"
-                  target="_blank"
-                  sx={{
-                    width: 50,
-                    height: 50,
-                    "&:hover .linkedin-icon": {
-                      fontSize: 55,
-                    },
-                  }}
-                >
-                  <LinkedInIcon
-                    className="linkedin-icon"
-                    sx={{
-                      color: darkMode
-                        ? "var(--color-linkendin-icon-light)"
-                        : "var(--color-linkendin-icon-dark)",
-                      fontSize: 50,
-                    }}
-                  />
-                </IconButton>
-              </Grid>
-
-              <Grid item>
-                <IconButton
                   href="https://wa.me/573106639327"
                   target="_blank"
                   sx={{
@@ -264,6 +192,78 @@ const AboutMeSectionComponent = ({ darkMode, language }) => {
                     </MenuItem>
                   </CopyToClipboard>
                 </Menu>
+              </Grid>
+
+              <Grid item>
+                <IconButton
+                  href="https://linkedin.com/in/juanegomez"
+                  target="_blank"
+                  sx={{
+                    width: 50,
+                    height: 50,
+                    "&:hover .linkedin-icon": {
+                      fontSize: 55,
+                    },
+                  }}
+                >
+                  <LinkedInIcon
+                    className="linkedin-icon"
+                    sx={{
+                      color: darkMode
+                        ? "var(--color-linkendin-icon-light)"
+                        : "var(--color-linkendin-icon-dark)",
+                      fontSize: 50,
+                    }}
+                  />
+                </IconButton>
+              </Grid>
+
+              <Grid item>
+                <IconButton
+                  href="https://github.com/juanegomez"
+                  target="_blank"
+                  sx={{
+                    width: 50,
+                    height: 50,
+                    "&:hover .github-icon": {
+                      fontSize: 55,
+                    },
+                  }}
+                >
+                  <GitHubIcon
+                    className="github-icon"
+                    sx={{
+                      color: darkMode
+                        ? "var(--color-github-icon-dark)"
+                        : "var(--color-github-icon-light)",
+                      fontSize: 50,
+                    }}
+                  />
+                </IconButton>
+              </Grid>
+
+              <Grid item>
+                <IconButton
+                  href="https://gitlab.com/juanegomez"
+                  target="_blank"
+                  sx={{
+                    width: 50,
+                    height: 50,
+                    "&:hover .github-icon": {
+                      fontSize: 55,
+                    },
+                  }}
+                >
+                  <GitLabIcon
+                    className="github-icon"
+                    sx={{
+                      color: darkMode
+                        ? "var(--color-github-icon-dark)"
+                        : "var(--color-github-icon-light)",
+                      fontSize: 50,
+                    }}
+                  />
+                </IconButton>
               </Grid>
             </Grid>
           </Box>

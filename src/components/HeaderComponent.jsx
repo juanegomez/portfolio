@@ -32,30 +32,17 @@ const HeaderComponent = ({
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleNavMenuOpen = (event) => {
-    setAnchorNavEl(event.currentTarget);
-  };
-
-  const handleNavMenuClose = () => {
-    setAnchorNavEl(null);
-  };
-
-  const handleLangMenuOpen = (event) => {
-    setAnchorLangEl(event.currentTarget);
-  };
-
-  const handleLangMenuClose = () => {
-    setAnchorLangEl(null);
-  };
+  const handleNavMenuOpen = (event) => setAnchorNavEl(event.currentTarget);
+  const handleNavMenuClose = () => setAnchorNavEl(null);
+  const handleLangMenuOpen = (event) => setAnchorLangEl(event.currentTarget);
+  const handleLangMenuClose = () => setAnchorLangEl(null);
 
   const handleLanguageSelect = (lang) => {
     toggleLanguage(lang);
     handleLangMenuClose();
   };
 
-  const handleLogoClick = () => {
-    navigate("/");
-  };
+  const handleLogoClick = () => navigate("/");
 
   const navItems = [
     { id: "home", label: language === "en" ? contentEn.home : contentEs.home },
@@ -65,8 +52,7 @@ const HeaderComponent = ({
     },
     {
       id: "technologies",
-      label:
-        language === "en" ? contentEn.technologies : contentEs.technologies,
+      label: language === "en" ? contentEn.technologies : contentEs.technologies,
     },
     {
       id: "projects",
@@ -79,9 +65,11 @@ const HeaderComponent = ({
   ];
 
   const languageOptions = [
-    { id: "en", label: "🇺🇸 EN" },
-    { id: "es", label: "🇪🇸 ES" },
+    { id: "en", label: "EN", icon: '/flags/english_flag.svg' },
+    { id: "es", label: "ES", icon: '/flags/spanish_flag.svg' },
   ];
+
+  const selectedLang = languageOptions.find((opt) => opt.id === language);
 
   return (
     <AppBar
@@ -106,19 +94,17 @@ const HeaderComponent = ({
             sx={{ width: 40, height: 40 }}
           />
         </IconButton>
+
         {location.pathname === "/" && isMobile && (
           <IconButton color="inherit" edge="start" onClick={handleNavMenuOpen}>
             <MenuIcon />
           </IconButton>
         )}
+
         <Box sx={{ flexGrow: 1 }} />
+
         {location.pathname === "/" && !isMobile && (
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              alignItems: "center",
-            }}
-          >
+          <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
             {navItems.map((item) => (
               <Link
                 key={item.id}
@@ -139,18 +125,34 @@ const HeaderComponent = ({
             ))}
           </Box>
         )}
+
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <ThemeSwitch checked={darkMode} onChange={toggleTheme} />
+
           <Button
             color="inherit"
             aria-controls="language-menu"
             aria-haspopup="true"
             onClick={handleLangMenuOpen}
-            sx={{ ml: 1 }}
+            sx={{
+              ml: 1,
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              fontSize: "1rem",
+              textTransform: "none",
+            }}
           >
-            {languageOptions.find((opt) => opt.id === language)?.label}
+            <Box
+              component="img"
+              src={selectedLang?.icon}
+              alt={`${selectedLang?.label} flag`}
+              sx={{ width: 20, height: 20 }}
+            />
+            {selectedLang?.label}
           </Button>
         </Box>
+
         {location.pathname === "/" && (
           <Menu
             id="nav-menu"
@@ -172,6 +174,7 @@ const HeaderComponent = ({
             ))}
           </Menu>
         )}
+
         <Menu
           id="language-menu"
           anchorEl={anchorLangEl}
@@ -182,9 +185,25 @@ const HeaderComponent = ({
           {languageOptions.map((option) => (
             <MenuItem
               key={option.id}
-              onClick={() => handleLanguageSelect(option.id)}
+              onClick={() => {
+                if (option.id !== language) {
+                  handleLanguageSelect(option.id);
+                } else {
+                  handleLangMenuClose();
+                }
+              }}
+              selected={option.id === language}
+              disabled={option.id === language}
             >
-              {option.label}
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Box
+                  component="img"
+                  src={option.icon}
+                  alt={`${option.label} flag`}
+                  sx={{ width: 20, height: 20 }}
+                />
+                {option.label}
+              </Box>
             </MenuItem>
           ))}
         </Menu>
