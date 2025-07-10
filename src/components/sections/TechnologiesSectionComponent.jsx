@@ -25,12 +25,14 @@ const TechnologiesSectionComponent = ({ darkMode, language }) => {
     },
   };
 
-  const xanoStyles = {
+const xanoStyles = {
     width: "120px",
     height: "100px",
-    transition: "transform 0.3s ease-in-out",
+    color: darkMode ? "#fff" : "#000",
+    transition: "transform 0.3s ease-in-out, color 0.3s ease-in-out",
     "&:hover": {
       transform: "scale(1.1)",
+      color: darkMode ? "#000" : "#fff",
     },
   };
 
@@ -78,7 +80,7 @@ const TechnologiesSectionComponent = ({ darkMode, language }) => {
     },
     {
       name: "Xano",
-      image: `${urlImage}xano.svg`,
+      image: `/xano.svg`,
       style: xanoStyles,
     },
     {

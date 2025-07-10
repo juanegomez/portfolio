@@ -79,8 +79,8 @@ const HomeSectionComponent = ({ darkMode, language }) => {
           <Typewriter
             options={{
               strings: [
-                "Full Stack Developer",
-                "Frontend Developer",
+                // "Full Stack Developer",
+                // "Frontend Developer",
                 "Backend Developer",
               ],
               autoStart: true,
