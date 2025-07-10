@@ -64,7 +64,7 @@ const CustomAvatar = styled(Avatar)(({ theme }) => ({
 // eslint-disable-next-line react/prop-types
 const HomeSectionComponent = ({ darkMode, language }) => {
   const bucketUrl = "https://juanegomez-bucket.s3.us-west-2.amazonaws.com";
-  const myCv = `${bucketUrl}/${
+  const myCv = `/${
     language === "en" ? "juan_gomez_cv_en.pdf" : "juan_gomez_cv.pdf"
   }`;
 
